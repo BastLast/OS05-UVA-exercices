@@ -15,16 +15,24 @@ for line in lines :
 erreur = 0
 x=0
 y=0
-for i in range(1,taille) :
-    if i not in colonnes :
-        for k in range(1,taille) :
-            if k not in lignes :
-                if erreur ==0 :
-                    x = i
-                    y = k
-                    erreur = 1
 
-if erreur == 1 :
-    print(x , y)
-else :
+if len(colonnes) == taille or len(lignes) == taille :
     print("Emprise totale")
+else : 
+    for i in range(1,taille+1) :
+        if erreur ==1 :
+            break
+        if i not in colonnes :
+           for k in range(1,taille+1) :
+               if k not in lignes :
+                   if erreur ==0 :
+                        x = i
+                        y = k
+                        erreur = 1
+                        break
+                        
+
+    if erreur == 1 :
+        print(x , y)
+    else :
+        print("Emprise totale")
