@@ -5,7 +5,7 @@ count = 0
 resultat = 0
 panier = {}
 for line in lines :
-    line = line.rstrip('\n')
+    line = line.rstrip()
     lineTab = line.split(" ")
     if count == 1:
         if lineTab[1] in panier :
@@ -15,6 +15,7 @@ for line in lines :
     if lineTab[0] == "":
         count = 1
     if count == 0:
+        print(lineTab)
         panier[lineTab[0]] = lineTab[1]
 if count == 3 :
     print('Panier invalide')
