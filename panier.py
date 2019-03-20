@@ -15,7 +15,6 @@ for line in lines :
     if lineTab[0] == "":
         count = 1
     if count == 0:
-        print(lineTab)
         panier[lineTab[0]] = lineTab[1]
 if count == 3 :
     print('Panier invalide')
