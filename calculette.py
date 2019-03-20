@@ -3,7 +3,7 @@ import sys
 lines = sys.stdin.readlines()
 nb = []
 for line in lines :
-    line = line.rstrip('\n')
+    line = line.rstrip()
     lineTab = line.split(" ")
     resultat = -1
     erreur = 0
@@ -12,13 +12,13 @@ for line in lines :
             if len(nb) < 1 :
                 erreur = 1
             if erreur == 0 :
-                if len(nb) == 1 :
-                    if resultat == -1 :
+                if resultat == -1 :
+                    if len(nb) == 1:
                         erreur = 1
                     else :
-                        nb1 = resultat
+                        nb1 = nb.pop()
                 else:
-                    nb1 = nb.pop()
+                    nb1 = resultat
                 nb2 = nb.pop()
                 if i == '*':
                     resultat = nb1 * nb2
@@ -30,6 +30,9 @@ for line in lines :
         print("Expression invalide")
     else :
         if(len(nb)== 1) :
-            print(nb.pop())
+            print(nb.pop()) 
         else:
-            print(resultat)
+            if(len(nb)== 0) :
+                print(resultat)
+            else:
+                print("Expression invalide")
